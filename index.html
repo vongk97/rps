@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ULLL</title>
+  </head>
+  <body>
+    <script>
+      function computerPlay() {
+        let options = ["Rock", "Paper", "Scissors"];
+        let choice = options[Math.floor(Math.random() * options.length)];
+        return choice;
+      }
+
+      function playRound(playerSelection, computerSelection) {
+        // All possible outcomes if user chose Rock
+        if (playerSelection == "Rock") {
+          if (computerSelection == "Scissors") {
+            win++;
+            return ("You win! " + playerSelection + " beats " + computerSelection);
+          }
+          else if (computerSelection == "Paper")
+            return ("You lose! " + computerSelection + " beats " + playerSelection);
+          else if (computerSelection == "Rock")
+            return ("Tied!");
+        }
+        // Repeat for all three player choices
+        if (playerSelection == "Scissors") {
+          if (computerSelection == "Scissors") {
+            tie++;
+            return ("Tied!");
+          }
+          else if (computerSelection == "Paper")
+            return ("You win!" + playerSelection + " beats " + computerSelection);
+          else if (computerSelection == "Rock")
+            return ("You lose! " + computerSelection + " beats " + playerSelection);
+        }
+      if (playerSelection == "Paper") {
+        if (computerSelection == "Scissors")
+          return ("You lose! " + computerSelection + " beats " + playerSelection);
+        else if (computerSelection == "Paper")
+          return ("Tied!");
+        else if (computerSelection == "Rock")
+          return ("You win! " + playerSelection + " beats " + computerSelection);
+        }
+      }
+
+      function game() {
+        const playerSelection = prompt("Let's play Rock, Paper, Scissors! Enter your choice:");
+        const computerSelection = computerPlay();
+        console.log("You chose " + playerSelection);
+        console.log(playRound(playerSelection, computerSelection));
+      }
+      let win = 0;
+      let lose = 0;
+      let tie = 0;
+      for (let i = 0; i < 5; i++) {
+        game();
+      };
+      console.log("You won " + win + " times.");
+    </script>
+  </body>
+</html>
